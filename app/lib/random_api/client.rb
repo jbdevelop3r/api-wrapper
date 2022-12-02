@@ -8,7 +8,7 @@ class RandomApi::Client
     def selected_people 
         connection = Faraday.new(
             url: 'https://randomuser.me', 
-            params: {results: 2}
+            params: {results: 5}
         )
         response = connection.get('api')
         JSON.parse(response.body)
