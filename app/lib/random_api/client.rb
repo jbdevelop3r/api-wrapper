@@ -13,4 +13,17 @@ class RandomApi::Client
         response = connection.get('api')
         JSON.parse(response.body)
     end
+
+    def filtered_result 
+        connection = Faraday.new(
+            url: 'https://randomuser.me', 
+            params: {
+                results: 2,
+                inc: "name, gender, nat",
+                noinfo: nil
+            }
+        )
+        response = connection.get('api')
+        JSON.parse(response.body)
+    end
 end

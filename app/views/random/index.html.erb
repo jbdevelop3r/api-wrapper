@@ -1,6 +1,6 @@
 <div class="container my-5">
     <div class="row">
-        <h2> Miss Universe: </h2>
+        <h2> Winner </h2>
         <table class="table table-bordered text-center">
             <tr class= "text-light" style="background-color: #3C4048;">
                 <th scope="col">Title</th>
@@ -15,33 +15,34 @@
                     <td><%= @random["results"][0]["name"]["first"]%></td>
                     <td><%= @random["results"][0]["name"]["last"]%></td>
                     <td><%= @random["results"][0]["email"]%></td>
-                    <td><%=link_to "See picture", @random["results"][0]["picture"]["large"], style: "text-decoration: none; color: black;"%></td>
+                    <td> <%= image_tag("#{@random["results"][0]["picture"]["large"]}", height: 150, width: 150) %>                                                                                                                                                                                                  </td> 
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
 
-
-
+<h2> Filtered Result </h2>
 <table class="table">
- <tr>
-    <th scope="col">Title</th>
-    <th scope="col">First Name</th>
-    <th scope="col">Last Name</th>
-    <th scope="col">email</th>
-    <th scope="col">avatar</th>
-  </tr>
-<% @selected["results"].each do |selected| %>
     <tr>
-        <td> <%= selected["name"]["title"] %> </td>
-        <td> <%= selected["name"]["first"] %> </td>
-        <td> <%= selected["name"]["last"] %> </td>
-        <td> <%= selected["email"] %> </td>
-        <td> <%= link_to "See picture", selected["picture"]["large"] %> </td>
+        <th scope="col">Title</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Nationality</th>
     </tr>
-  <% end %>
+   <% @filtered["results"].each do |filter| %>
+       <tr>
+           <td> <%= filter["name"]["title"] %> </td>
+           <td> <%= filter["name"]["first"] %> </td>
+           <td> <%= filter["name"]["last"] %> </td>
+           <td> <%= filter["gender"] %> </td>
+           <td> <%= filter["nat"] %> </td>
+       </tr>
+   <% end %>
 </table>
+
+<%# <%= image_tag("#{character["thumbnail"]["path"] + "." + character["thumbnail"]["extension"]}", height: 150, width: 150)  %>
 
 
 
