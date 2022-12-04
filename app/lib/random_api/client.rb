@@ -5,22 +5,25 @@ class RandomApi::Client
         JSON.parse(response.body)
     end
 
-    def selected_people 
-        connection = Faraday.new(
-            url: 'https://randomuser.me', 
-            params: {results: 5}
-        )
-        response = connection.get('api')
-        JSON.parse(response.body)
-    end
-
-    def filtered_result 
+    def included
         connection = Faraday.new(
             url: 'https://randomuser.me', 
             params: {
                 results: 4,
                 inc: "name, gender, nat, picture",
                 noinfo: nil
+            }
+        )
+        response = connection.get('api')
+        JSON.parse(response.body)
+    end
+
+    def excluded
+        connection = Faraday.new(
+            url: 'https://randomuser.me', 
+            params: {
+                exec: "login,info,location,picture,nat",
+                results: 2
             }
         )
         response = connection.get('api')
