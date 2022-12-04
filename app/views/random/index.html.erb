@@ -1,17 +1,73 @@
-<h2> Our random user is: </h2>
-<table class="table">
-  <tr>
-    <th scope="col">Title</th>
-    <th scope="col">First Name</th>
-    <th scope="col">Last Name</th>
-    <th scope="col">email</th>
-    <th scope="col">avatar</th> 
-  </tr>
-  <tr>
-    <td><%= @random["results"][0]["name"]["title"]%></td>
-    <td><%= @random["results"][0]["name"]["first"]%></td>
-    <td><%= @random["results"][0]["name"]["last"]%></td>
-    <td><%= @random["results"][0]["email"]%></td>
-    <td><%=link_to "See picture", @random["results"][0]["picture"]["large"]%></td>
-  </tr>
-</table>
+<nav class="navbar" style="background-color: #282A3A;">
+  <div class="container-fluid">
+    <a class="navbar-brand text-light">API Wrapper</a>
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-secondary" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container my-3">
+    <div class="row">
+        <h3 style="display: flex; justify-content: center;"> Single Random Result </h3>
+        <table class="table text-center">
+            <tr class= "text-light" style="background-color: #282A3A;">
+                <th scope="col">Title</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">email</th>
+                <th scope="col">Nationality</th>
+            </tr>
+            <tbody class="table-group-divider">
+                <tr>
+                    <td><%= @random["results"][0]["name"]["title"].upcase %></td>
+                    <td><%= @random["results"][0]["name"]["first"].upcase %></td>
+                    <td><%= @random["results"][0]["name"]["last"].upcase %></td>
+                    <td><%= @random["results"][0]["email"] %></td>
+                    <td><%= @random["results"][0]["nat"].upcase %></td>                                                                                                                                                                                              </td> 
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<h3 style="display: flex; justify-content: center;"> 4 Random Result </h3>
+<div class="filtered-container">
+    <% @include["results"].each do |filter| %>
+        <div class="filtered-content">
+            <div class="filtered-photo" style="outline: 2px solid white;"> <%= image_tag("#{filter["picture"]["large"]}", height: 200, width:200) %> </div>
+            <div class="info-section">
+                <div> <%= filter["name"]["title"] %>. </div>
+                <div> <%= filter["name"]["first"] %> </div>
+                <div> <%= filter["name"]["last"] %> </div>
+            </div>
+        </div>
+    <% end %>
+</div>
+<div style="display: flex; justify-content: center; margin-top: 25px;"> <%= button_to "Get another set", random_index_path, :method => :get, class: "btn btn-info text-light" %> </div>
+
+<div class="container my-3">
+    <div class="row">
+        <h3 style="display: flex; justify-content: center;"> Excluding some information </h3>
+        <table class="table text-center">
+            <tr class= "text-light" style="background-color: #282A3A;">
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Cell Number</th>
+            </tr>
+            <tbody class="table-group-divider">
+                <% @exclude["results"].each do |exc| %>
+                <tr>
+                    <td><%= exc["name"]["first"].upcase %></td>
+                    <td><%= exc["name"]["last"].upcase %></td>
+                    <td><%= exc["phone"] %></td>
+                    <td><%= exc["cell"] %></td>                                                                                                                                                                                              </td> 
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
