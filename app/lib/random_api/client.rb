@@ -18,8 +18,8 @@ class RandomApi::Client
         connection = Faraday.new(
             url: 'https://randomuser.me', 
             params: {
-                results: 2,
-                inc: "name, gender, nat",
+                results: 4,
+                inc: "name, gender, nat, picture",
                 noinfo: nil
             }
         )
