@@ -1,23 +1,18 @@
-<nav class="navbar" style="background-color: #282A3A;">
-  <div class="container-fluid">
-    <a class="navbar-brand text-light">API Wrapper</a>
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-secondary" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+<%# <div class="d-flex flex-column ms-5 mt-4" id="links"> %>
+    <%# <p> <span> <%= link_to "include information", include_information_path, class: "route-link"%>
+    <%# <p> <span> <%= link_to "exclude information", exclude_information_path, class: "route-link" %> 
+<%# </div> %>
 
 <div class="container my-3">
     <div class="row">
-        <h3 style="display: flex; justify-content: center;"> Single Random Result </h3>
+        <h3 style="display: flex; justify-content: center; margin-top: 15px; margin-bottom: 15px;"> Single Random Result </h3>
         <table class="table text-center">
             <tr class= "text-light" style="background-color: #282A3A;">
                 <th scope="col">Title</th>
                 <th scope="col">First Name</th>
                 <th scope="col">Last Name</th>
                 <th scope="col">email</th>
-                <th scope="col">Nationality</th>
+                <th scope="col">Nationality</th> 
             </tr>
             <tbody class="table-group-divider">
                 <tr>
@@ -32,42 +27,5 @@
     </div>
 </div>
 
-<h3 style="display: flex; justify-content: center;"> 4 Random Result </h3>
-<div class="filtered-container">
-    <% @include["results"].each do |filter| %>
-        <div class="filtered-content">
-            <div class="filtered-photo" style="outline: 2px solid white;"> <%= image_tag("#{filter["picture"]["large"]}", height: 200, width:200) %> </div>
-            <div class="info-section">
-                <div> <%= filter["name"]["title"] %>. </div>
-                <div> <%= filter["name"]["first"] %> </div>
-                <div> <%= filter["name"]["last"] %> </div>
-            </div>
-        </div>
-    <% end %>
-</div>
-<div style="display: flex; justify-content: center; margin-top: 25px;"> <%= button_to "Get another set", random_index_path, :method => :get, class: "btn btn-info text-light" %> </div>
-
-<div class="container my-3">
-    <div class="row">
-        <h3 style="display: flex; justify-content: center;"> Excluding some information </h3>
-        <table class="table text-center">
-            <tr class= "text-light" style="background-color: #282A3A;">
-                <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">Phone Number</th>
-                <th scope="col">Cell Number</th>
-            </tr>
-            <tbody class="table-group-divider">
-                <% @exclude["results"].each do |exc| %>
-                <tr> 
-                    <td><%= exc["name"]["first"].upcase %></td>
-                    <td><%= exc["name"]["last"].upcase %></td>
-                    <td><%= exc["phone"] %></td>
-                    <td><%= exc["cell"] %></td>                                                                                                                                                                                              </td> 
-                </tr>
-                <% end %>
-            </tbody>
-        </table>
-    </div>
-</div>
+<div style="display: flex; justify-content: center; margin-top: 20px;"> <%= button_to "Get another", random_index_path, :method => :get, class: "btn btn-warning text-dark" %> </div>
 

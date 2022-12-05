@@ -1,7 +1,7 @@
 class RandomApi::Client
     BASE_URL = "https://randomuser.me".freeze
 
-    def random 
+    def random  
         request("api")
     end
 
@@ -9,13 +9,17 @@ class RandomApi::Client
         request("api", params = {results: results, inc: inc, noinfo: noinfo})
     end
 
-    def excluded(results=2, exc="login,info,location,picture,nat")
+    def excluded(results=5, exc="login,location,picture,nat")
         request("api", params = {results: results, exec: exc})
+    end
+
+    def filtered(results=3, gender="male", nat="us")
+        request("api", params = {results: results, gender: gender, nat: nat})
     end
 
     private
     
-    def request(endpoint, params={})
+    def request(endpoint, params={} )
         response = connection.get("#{endpoint}") do |request| 
             params.each do |k, v|
                 request.params[k] = v

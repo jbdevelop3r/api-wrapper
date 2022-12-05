@@ -39,3 +39,50 @@
 .filtered-photo {
     margin-bottom: 10px;
 }
+
+.home-btn {
+    margin-right: 40px;
+    margin-top: 20px;
+    padding: 5px 12px;
+    background-color: #282A3A;
+    border-radius: 5px;
+}
+
+.home {
+    text-decoration: none;
+    color: white;
+}
+
+.home:hover {
+    text-decoration: none; 
+    color: white;
+}
+
+.home-btn:hover {
+    background-color: #C69749;
+}
+
+.route-link {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.route-link:hover {
+    background-color: #C69749;
+    color: white;
+}
+
+#links p span {
+    margin-right: 40px;
+    margin-top: 20px;
+    padding: 5px 12px;
+    background-color: #d5ab68;
+    border-radius: 5px;
+}
+
+#filter-content {
+    vertical-align: center;
+    color: red;
+}

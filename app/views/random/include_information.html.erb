@@ -1,0 +1,17 @@
+<p class="d-flex justify-content-end"> <span class="home-btn"> <%= link_to "Home", random_index_path, class: "home" %> <span> </p>
+
+<h3 style="display: flex; justify-content: center; margin-top: 20px"> 4 Random Result </h3>
+<div class="filtered-container">
+    <% @include["results"].each do |filter| %>
+        <div class="filtered-content">
+            <div class="filtered-photo" style="outline: 2px solid white;"> <%= image_tag("#{filter["picture"]["large"]}", height: 200, width:200) %> </div>
+            <div class="info-section">
+                <div> <%= filter["name"]["title"] %>. </div>
+                <div> <%= filter["name"]["first"] %> </div>
+                <div> <%= filter["name"]["last"] %> </div>
+            </div>
+        </div>
+    <% end %>
+</div>
+
+<div style="display: flex; justify-content: center; margin-top: 25px;"> <%= button_to "Get another set", include_information_path, :method => :get, class: "btn btn-warning text-dark" %> </div>

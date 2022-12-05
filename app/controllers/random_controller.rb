@@ -1,11 +1,24 @@
 class RandomController < ApplicationController
+    before_action 
     def index
         client = RandomApi::Client.new
         @random = client.random
-        @include = client.included
-        @exclude = client.excluded
+        
     end
-    def show
+
+    def include_information
         client = RandomApi::Client.new
+        @include = client.included
     end
+
+    def exclude_information
+        client = RandomApi::Client.new
+        @exclude = client.excluded 
+    end
+
+    def filtered_result
+        client = RandomApi::Client.new
+        @filter = client.filtered
+    end
+
 end

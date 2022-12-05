@@ -1,0 +1,27 @@
+<p class="d-flex justify-content-end"> <span class="home-btn"> <%= link_to "Home", random_index_path, class: "home" %> <span> </p>
+
+<div class="container my-3">
+    <div class="row">
+        <h3 style="display: flex; justify-content: center;"> Filtered Result</h3>
+        <table class="table text-center align-middle">
+            <tr class= "text-light" style="background-color: #282A3A;">
+                <th scope="col">Title</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Cell Number</th>
+                <th scope="col">Username</th>
+            </tr>
+            <tbody class="table-group-divider">
+                <% @filter["results"].each do |filtered| %>
+                <tr class="display-7"> 
+                    <td><%= filtered["name"]["title"].upcase %></td>
+                    <td><%= filtered["name"]["first"].upcase %></td>
+                    <td><%= filtered["nat"] %></td>   
+                    <td> <%= image_tag("#{filtered["picture"]["large"]}", height: 100, width:100) %> </td>                                                                                                                                                                                           </td> 
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div style="display: flex; justify-content: center; margin-top: 25px;"> <%= button_to "Get another set", filtered_result_path, :method => :get, class: "btn btn-warning text-dark" %> </div>
