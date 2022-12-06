@@ -7,6 +7,18 @@ class StarApi::Client
         )
     end
 
+    def planet  
+        request(
+            endpoint: "planets"
+        )
+    end
+
+    def starship 
+        request(
+            endpoint: "starships"
+        )
+    end
+
     private
     
     def request(method = "get", endpoint: , params: {})

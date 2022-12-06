@@ -1,0 +1,27 @@
+<div class="container my-3">
+    <div class="row">
+        <h3 style="display: flex; justify-content: center; margin-bottom: 15px;"> Star Wars Starships </h3>
+        <table class="table text-center align-middle">
+            <tr class= "text-light" style="background-color: #282A3A;">
+                <th scope="col">Name</th>
+                <th scope="col">Model</th>
+                <th scope="col">Manufacturer</th>
+                <th scope="col">Crew Members</th>
+                <th scope="col">Atmosphering Speed</th>
+            </tr>
+            <tbody class="table-group-divider">
+                <% @starships["results"].each do |starship| %>
+                <tr class="display-7"> 
+                    <td><%= starship["name"].upcase %></td> 
+                    <td><%= starship["model"].upcase %></td> 
+                    <td><%= starship["manufacturer"].upcase %></td> 
+                    <td><%= starship["crew"].upcase %></td> 
+                    <td><%= starship["max_atmosphering_speed"].upcase %></td>                                                                                                                                                                                   </td> 
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div style="display: flex; justify-content: center; margin-top: 25px;"> <%= button_to "Get another set", filtered_result_path, :method => :get, class: "btn btn-warning text-dark" %> </div>
