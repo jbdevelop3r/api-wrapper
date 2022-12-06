@@ -32,6 +32,14 @@ class RandomApi::Client
         )
     end
 
+    def generated_credentials(password="upper,lower,1-16", inc="login")
+        request(
+            method: "get",
+            endpoint: "api", 
+            params: {password: password, inc: inc}
+        )
+    end
+
     private
     
     def request(method:, endpoint: , params: {})
