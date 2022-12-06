@@ -3,14 +3,12 @@ class RandomApi::Client
 
     def random  
         request(
-            method: "get",
             endpoint: "api"
         )
     end
 
     def included(results= 4, inc="name, gender, nat, picture", noinfo=nil)
         request(
-            method: "get",
             endpoint: "api", 
             params: {results: results, inc: inc, noinfo: noinfo}
         )
@@ -18,15 +16,13 @@ class RandomApi::Client
 
     def excluded(results=5, exc="login, location, picture, nat")
         request(
-            method: "get",
             endpoint: "api", 
-            params: {results: results, exc: exc}
+            params: {results: results, exec: exc}
         )
     end
 
     def filtered(results=3, gender="male", nat="us")
         request(
-            method: "get",
             endpoint: "api", 
             params: {results: results, gender: gender, nat: nat}
         )
@@ -34,7 +30,6 @@ class RandomApi::Client
 
     def generated_credentials(password="upper,lower,1-16", inc="login")
         request(
-            method: "get",
             endpoint: "api", 
             params: {password: password, inc: inc}
         )
@@ -42,7 +37,7 @@ class RandomApi::Client
 
     private
     
-    def request(method:, endpoint: , params: {})
+    def request(method = "get", endpoint: , params: {})
         response = connection.public_send(method, "#{endpoint}") do |request| 
             params.each do |k, v|
                 request.params[k] = v
