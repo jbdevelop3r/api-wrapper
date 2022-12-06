@@ -9,8 +9,8 @@ class RandomApi::Client
         request("api", params = {results: results, inc: inc, noinfo: noinfo})
     end
 
-    def excluded(results=5, exc="login,location,picture,nat")
-        request("api", params = {results: results, exec: exc})
+    def excluded(results=5, exc="login, location, picture, nat")
+        request("api", params = {results: results, exc: exc})
     end
 
     def filtered(results=3, gender="male", nat="us")

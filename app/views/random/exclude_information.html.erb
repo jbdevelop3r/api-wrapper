@@ -8,7 +8,7 @@
                 <th scope="col">First Name</th>
                 <th scope="col">Last Name</th>
                 <th scope="col">Phone Number</th>
-                <th scope="col">Cell Number</th>
+                <th scope="col">Email</th>
             </tr>
             <tbody class="table-group-divider">
                 <% @exclude["results"].each do |exc| %>
@@ -16,7 +16,7 @@
                     <td><%= exc["name"]["first"].upcase %></td>
                     <td><%= exc["name"]["last"].upcase %></td>
                     <td><%= exc["phone"] %></td>
-                    <td><%= exc["location"] %></td>                                                                                                                                                                                              </td>
+                    <td><%= exc["email"] %></td>                                                                                                                                                                                              </td>
                 </tr>
                 <% end %>
             </tbody>

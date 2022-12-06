@@ -1,5 +1,5 @@
 class RandomController < ApplicationController
-    before_action 
+
     def index
         client = RandomApi::Client.new
         @random = client.random
