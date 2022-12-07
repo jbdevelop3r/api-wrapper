@@ -1,0 +1,26 @@
+<div class="container my-3">
+    <div class="row">
+        <h3 style="display: flex; justify-content: center; margin-bottom: 15px;"> Star Wars Films </h3>
+        <table class="table text-center align-middle">
+            <tr class= "text-light" style="background-color: #282A3A;">
+                <th scope="col">Title</th>
+                <th scope="col">Episode ID</th>
+                <th scope="col">Opening Crawl</th>
+                <th scope="col">Director</th>
+                <th scope="col">Release Date</th>
+            </tr>
+            <tbody class="table-group-divider">
+                <% @films["results"].each do |starship| %>
+                <tr class="display-7"> 
+                    <td><%= starship["title"].upcase %></td> 
+                    <td><%= starship["episode_id"] %></td> 
+                    <td><%= starship["opening_crawl"].upcase %></td> 
+                    <td><%= starship["director"].upcase %></td> 
+                    <td><%= starship["release_date"].upcase %></td>                                                                                                                                                                                   </td> 
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
+

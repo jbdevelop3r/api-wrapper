@@ -1,0 +1,24 @@
+<div class="container my-3">
+    <div class="row">
+        <h3 style="display: flex; justify-content: center; margin-bottom: 15px;"> Single Film </h3>
+        <table class="table text-center align-middle">
+            <tr class= "text-light" style="background-color: #282A3A;">
+                <th scope="col">Title</th>
+                <th scope="col">Episode ID</th>
+                <th scope="col">Opening Crawl</th>
+                <th scope="col">Director</th>
+                <th scope="col">Release Date</th>
+            </tr>
+            <tbody class="table-group-divider">
+                <tr class="display-7"> 
+                    <td><%= @films["title"] %></td>   
+                    <td><%= @films["episode_id"] %></td>                                                                                                                                                                              </td> 
+                    <td><%= @films["opening_crawl"] %></td>  
+                    <td><%= @films["director"] %></td>  
+                    <td><%= @films["release_date"] %></td>  
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

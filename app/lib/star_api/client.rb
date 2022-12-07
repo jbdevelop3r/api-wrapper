@@ -19,6 +19,18 @@ class StarApi::Client
         )
     end
 
+    def film
+        request(
+            endpoint: "films"
+        )
+    end
+
+    def single_film(id)
+        request(
+            endpoint: "films/#{id}/"
+        )
+    end
+
     private
     
     def request(method = "get", endpoint: , params: {})

@@ -13,4 +13,14 @@ class StarController < ApplicationController
         client = StarApi::Client.new
         @starships = client.starship
     end 
+
+    def films
+        client = StarApi::Client.new
+        @films = client.film
+    end 
+
+    def show
+        client = StarApi::Client.new
+        @films = client.single_film(params[:id])
+    end 
 end

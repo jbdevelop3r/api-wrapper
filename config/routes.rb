@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   resources :star
   resources :random 
   
-
   get '/planets', to: 'star#planets'
   get '/starships', to: 'star#starships'
+  get '/films', to: 'star#films'
 
   get '/include_information', to: 'random#include_information'
   get '/exclude_information', to: 'random#exclude_information'
